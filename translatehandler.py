@@ -1,12 +1,17 @@
+# Accesses the google translate api
+
 from googletrans import Translator
 
-class TranslatorHandler()
+class TranslationHandler:
     
     def __init__(self):
         self.translator = Translator()
 
-    def DetectLanguage(detectedtext):
+    def DetectLanguage(self, detectedtext):
         return self.translator.detect(detectedtext)
     
-    def TranslateText(detectedtext):
+    def TranslateText(self, detectedtext):
         return self.translator.translate(detectedtext)
+
+translator = TranslationHandler()
+print(translator.DetectLanguage('hello'))
