@@ -1,5 +1,4 @@
 # Accesses the google translate api
-
 from googletrans import Translator
 
 class TranslationHandler:
