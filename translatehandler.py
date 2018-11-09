@@ -11,6 +11,3 @@ class TranslationHandler:
     
     def TranslateText(self, detectedtext):
         return self.translator.translate(detectedtext)
-
-translator = TranslationHandler()
-print(translator.DetectLanguage('hello'))

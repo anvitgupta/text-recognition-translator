@@ -8,6 +8,3 @@ class ConversionHandler:
         tts = gTTS(translatedtext)
         timestr = time.strftime("%Y%m%d-%H%M%S")
         tts.save('./audio/' + timestr + '.mp3')
-
-converter = ConversionHandler()
-converter.ConvertToSound('hi there')
