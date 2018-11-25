@@ -26,7 +26,10 @@
       {% if sound_file %}
         <p>Sound file uploaded at: <a href="{{ sound_file_url }}">{{ sound_file_url }}</a></p>
       {% endif %}
-    </div>
+      {% if file_name %}
+        <p>Filename : {{ file_name }}</p>
+      {% endif %}
+      </div>
   </div>
 </div>
 {% endblock %}

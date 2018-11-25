@@ -32,7 +32,8 @@ def simple_upload(request):
         return render(request, 'core/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url,
             'translated_text': translated_text,
-            'sound_file_url' : sound_file_url
+            'sound_file_url' : sound_file_url,
+            'file_name' : filename
         })
     return render(request, 'core/simple_upload.html')
 
