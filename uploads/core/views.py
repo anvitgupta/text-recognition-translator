@@ -11,13 +11,15 @@ def home(request):
     return render(request, 'core/home.html', { 'documents': documents })
 
 def simple_upload(request):
+    imageprocessor = ImageProcessingHandler()
+
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
 
-        translated_text = ImageProcessingHandler.GetTextFromImage(myfile)
+        translated_text = imageprocessor.GetTextFromImage(myfile)
         time.sleep(3)
 
         return render(request, 'core/simple_upload.html', {
