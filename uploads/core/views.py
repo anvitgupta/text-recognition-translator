@@ -1,7 +1,8 @@
+import time
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-
+from Translation.imageprocessinghandler import ImageProcessingHandler
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 
@@ -15,8 +16,13 @@ def simple_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+
+        translated_text = ImageProcessingHandler.GetTextFromImage(myfile)
+        time.sleep(3)
+
         return render(request, 'core/simple_upload.html', {
-            'uploaded_file_url': uploaded_file_url
+            'uploaded_file_url': uploaded_file_url,
+            'translated_text': translated_text
         })
     return render(request, 'core/simple_upload.html')
 
