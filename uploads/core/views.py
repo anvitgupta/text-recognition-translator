@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from Translation.imageprocessinghandler import ImageProcessingHandler
+from Translation.conversionhandler import ConversionHandler
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 
@@ -12,6 +13,7 @@ def home(request):
 
 def simple_upload(request):
     imageprocessor = ImageProcessingHandler()
+    soundconverter = ConversionHandler()
 
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
@@ -22,9 +24,14 @@ def simple_upload(request):
         time.sleep(3)
         translated_text = imageprocessor.GetTextFromImage(myfile.name)
 
+        sound_file = soundconverter.ConvertToSound(translated_text)
+        soundfilename = fs.save("sound" + myfile.name, sound_file)
+        uploaded_sound_file_url = fs.url(soundfilename)
+
         return render(request, 'core/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url,
-            'translated_text': translated_text
+            'translated_text': translated_text,
+            'sound_file_url' : sound_file_url
         })
     return render(request, 'core/simple_upload.html')
 

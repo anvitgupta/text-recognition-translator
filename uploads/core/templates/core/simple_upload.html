@@ -23,6 +23,9 @@
       {% if translated_text %}
         <p>Translated Text: {{ translated_text }}</p>
       {% endif %}
+      {% if sound_file %}
+        <p>Sound file uploaded at: <a href="{{ sound_file }}">{{ sound_file }}</a></p>
+      {% endif %}
     </div>
   </div>
 </div>
