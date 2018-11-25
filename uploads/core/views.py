@@ -27,7 +27,7 @@ def simple_upload(request):
         sound_file = soundconverter.ConvertToSound(translated_text)
         path = './media/sound.mp3'
         sound_file.save(path)
-        sound_file_url = fs.url(path)
+        sound_file_url = fs.url("sound.mp3")
 
         return render(request, 'core/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url,
