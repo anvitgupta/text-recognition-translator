@@ -19,8 +19,8 @@ def simple_upload(request):
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
 
-        translated_text = imageprocessor.GetTextFromImage(myfile)
         time.sleep(3)
+        translated_text = imageprocessor.GetTextFromImage(myfile.name)
 
         return render(request, 'core/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url,

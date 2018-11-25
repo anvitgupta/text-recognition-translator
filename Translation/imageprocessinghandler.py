@@ -9,4 +9,5 @@ import pytesseract
 class ImageProcessingHandler:
 
     def GetTextFromImage(self, image):
-        return pytesseract.image_to_string(image)
+        text = './media/' + image + '.png'
+        return pytesseract.image_to_string(Image.open(text))
