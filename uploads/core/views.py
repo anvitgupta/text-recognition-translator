@@ -25,7 +25,7 @@ def simple_upload(request):
         translated_text = imageprocessor.GetTextFromImage(myfile.name)
 
         sound_file = soundconverter.ConvertToSound(translated_text)
-        path = './media/sound.mp3"
+        path = './media/sound.mp3'
         sound_file.save(path)
         sound_file_url = fs.url(path)
 
