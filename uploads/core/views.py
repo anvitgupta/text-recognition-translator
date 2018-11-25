@@ -19,20 +19,15 @@ def simple_upload(request):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
 
-        time.sleep(3)
         translated_text = imageprocessor.GetTextFromImage(myfile.name)
 
         sound_file = soundconverter.ConvertToSound(translated_text)
-        path = './media/sound.mp3'
-        sound_file.save(path)
+        sound_file.save('./media/sound.mp3')
         sound_file_url = fs.url("sound.mp3")
 
         return render(request, 'core/simple_upload.html', {
-            'uploaded_file_url': uploaded_file_url,
             'translated_text': translated_text,
             'sound_file_url' : sound_file_url,
-            'file_name' : filename
         })
     return render(request, 'core/simple_upload.html')
