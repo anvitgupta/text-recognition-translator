@@ -23,7 +23,7 @@ def simple_upload(request):
         translated_text = imageprocessor.GetTextFromImage(myfile.name)
 
         sound_file = soundconverter.ConvertToSound(translated_text)
-        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
         sound_file.save('./media/' + timestamp + '.mp3')
         sound_file_url = fs.url(timestamp + ".mp3")
 
