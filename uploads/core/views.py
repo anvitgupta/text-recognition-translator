@@ -26,7 +26,6 @@ def simple_upload(request):
         timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
         sound_file.save('./media/' + timestamp + '.mp3')
         sound_file_url = fs.url(timestamp + ".mp3")
-
         return render(request, 'core/simple_upload.html', {
             'translated_text': translated_text,
             'sound_file_url' : sound_file_url,
