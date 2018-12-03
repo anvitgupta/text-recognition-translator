@@ -11,11 +11,12 @@
         {{ form|crispy }}
         <input type="file" name="myfile">
         <p></p>
-        <select name="txn" tabindex="3" id="txn" class="fixed" onfocus="highlightInput(this.id)" onblur="unhighlightInput(this.id)">
-          <option value="RR">RR</option>
-          <option value="CR">CR</option>
-          <option value="SR">SR</option>
-          <option value="OR">OR</option>
+        {{ form|crispy }}
+        <select name="language" id="language" onfocus="highlightInput(this.id)" onblur="unhighlightInput(this.id)">
+          <option value="eng">English</option>
+          <option value="spa">Spanish</option>
+          <option value="jpn">Japanese</option>
+          <option value="ara">Arabic</option>
       </select>
         <p></p>
         <p>

@@ -13,6 +13,7 @@ def home(request):
     return render(request, 'core/home.html', { 'documents': documents })
 
 def simple_upload(request):
+    
     imageprocessor = ImageProcessingHandler()
     soundconverter = ConversionHandler()
     translator = TranslationHandler()
