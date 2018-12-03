@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from Translation.imageprocessinghandler import ImageProcessingHandler
 from Translation.conversionhandler import ConversionHandler
+import Translation.translatehandler import TranslationHandler
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 
@@ -14,14 +15,16 @@ def home(request):
 def simple_upload(request):
     imageprocessor = ImageProcessingHandler()
     soundconverter = ConversionHandler()
+    translator = TranslationHandler()
 
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
 
-        translated_text = imageprocessor.GetTextFromImage(myfile.name, "spa")
-
+        text_from_image = imageprocessor.GetTextFromImage(myfile.name, "spa")
+        translate_text = translator.TranslateText(text_from_image)
+        
         sound_file = soundconverter.ConvertToSound(translated_text)
         timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
         try:
