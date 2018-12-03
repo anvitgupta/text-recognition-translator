@@ -50,5 +50,5 @@ def save_sound_file():
     except:
         print('ignore this error')
 
-    return fs.url(timestamp + '.mp3')
+    return FileSystemStorage().url(timestamp + '.mp3')
         
