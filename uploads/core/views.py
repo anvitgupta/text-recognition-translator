@@ -20,7 +20,7 @@ def simple_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
 
-        translated_text = imageprocessor.GetTextFromImage(myfile.name)
+        translated_text = imageprocessor.GetTextFromImage(myfile.name, "spa")
 
         sound_file = soundconverter.ConvertToSound(translated_text)
         timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
