@@ -23,7 +23,7 @@ def simple_upload(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
 
-        text_from_image = imageprocessor.GetTextFromImage(myfile.name, "spa")
+        text_from_image = imageprocessor.GetTextFromImage(myfile.name, request.POST['language'])
         translated_text = translator.TranslateText(text_from_image).text
 
         sound_file = soundconverter.ConvertToSound(translated_text)
