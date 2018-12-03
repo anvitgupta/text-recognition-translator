@@ -24,7 +24,11 @@ def simple_upload(request):
 
         sound_file = soundconverter.ConvertToSound(translated_text)
         timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
-        sound_file.save('./media/' + timestamp + '.mp3')
+        try:
+            sound_file.save('./media/' + timestamp + '.mp3')
+        except:
+            print "Error occured with save"
+                
         sound_file_url = fs.url(timestamp + '.mp3')
         
         # sound_file_name = str(time.strftime("%Y%m%d-%H%M%S")) + '.mp3'
