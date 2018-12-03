@@ -23,7 +23,7 @@ def simple_upload(request):
         filename = get_file(request, myfile)
         translated_text = process_text(imageprocessor, translator, soundconverter, request, myfile) 
 
-        sound_file_url = save_sound_file(translated_text)
+        sound_file_url = save_sound_file(soundconverter, translated_text)
         
         return render(request, 'core/simple_upload.html', {
             'translated_text': translated_text,
@@ -42,7 +42,7 @@ def process_text(imageprocessor, translator, soundconverter, request, myfile):
     translated_text = translator.TranslateText(text_from_image).text
     return translated_text
 
-def save_sound_file(translated_text):
+def save_sound_file(soundconverter, translated_text):
     sound_file = soundconverter.ConvertToSound(translated_text)
     timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
     try:
