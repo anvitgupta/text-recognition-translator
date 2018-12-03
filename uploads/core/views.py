@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from Translation.imageprocessinghandler import ImageProcessingHandler
 from Translation.conversionhandler import ConversionHandler
-import Translation.translatehandler import TranslationHandler
+from Translation.translatehandler import TranslationHandler
 from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 
