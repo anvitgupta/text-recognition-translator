@@ -21,7 +21,7 @@ def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         filename = get_file(request, myfile)
-        sound_file = process_text(imageprocessor, translator, soundconverter, myfile) 
+        sound_file = process_text(imageprocessor, translator, soundconverter, request, myfile) 
 
         sound_file_url = save_sound_file()
         
@@ -29,7 +29,7 @@ def simple_upload(request):
             'translated_text': translated_text,
             'sound_file_url' : sound_file_url,
         })
-        
+
     return render(request, 'core/simple_upload.html')
 
 def get_file(request, myfile):
@@ -37,7 +37,7 @@ def get_file(request, myfile):
     filename = fs.save(myfile.name, myfile)
     return filename
 
-def process_text(imageprocessor, translator, soundconverter, myfile):
+def process_text(imageprocessor, translator, soundconverter, request, myfile):
     text_from_image = imageprocessor.GetTextFromImage(myfile.name, request.POST['language'])
     translated_text = translator.TranslateText(text_from_image).text
     sound_file = soundconverter.ConvertToSound(translated_text)
