@@ -23,8 +23,8 @@ def simple_upload(request):
         filename = fs.save(myfile.name, myfile)
 
         text_from_image = imageprocessor.GetTextFromImage(myfile.name, "spa")
-        translate_text = translator.TranslateText(text_from_image)
-        
+        translated_text = translator.TranslateText(text_from_image)
+
         sound_file = soundconverter.ConvertToSound(translated_text)
         timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
         try:
