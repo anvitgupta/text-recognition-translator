@@ -11,3 +11,5 @@ class TranslationHandler:
     
     def TranslateText(self, detectedtext):
         return self.translator.translate(detectedtext)
+
+    # print(translate.TranslateText("yo vivo en nashville"))

@@ -20,27 +20,35 @@ def simple_upload(request):
 
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
+        filename = get_file(request, myfile)
+        sound_file = process_text(imageprocessor, translator, soundconverter, myfile) 
 
-        text_from_image = imageprocessor.GetTextFromImage(myfile.name, request.POST['language'])
-        translated_text = translator.TranslateText(text_from_image).text
-
-        sound_file = soundconverter.ConvertToSound(translated_text)
-        timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
-        try:
-            sound_file.save('./media/' + timestamp + '.mp3')
-        except:
-            print('ignore this error')
-
-        sound_file_url = fs.url(timestamp + '.mp3')
-        
-        # sound_file_name = str(time.strftime("%Y%m%d-%H%M%S")) + '.mp3'
-        # fs.save(sound_file_name, sound_file)
-        # sound_file_url = fs.url(sound_file_name)
+        sound_file_url = save_sound_file()
         
         return render(request, 'core/simple_upload.html', {
             'translated_text': translated_text,
             'sound_file_url' : sound_file_url,
         })
+        
     return render(request, 'core/simple_upload.html')
+
+def get_file(request, myfile):
+    fs = FileSystemStorage()
+    filename = fs.save(myfile.name, myfile)
+    return filename
+
+def process_text(imageprocessor, translator, soundconverter, myfile):
+    text_from_image = imageprocessor.GetTextFromImage(myfile.name, request.POST['language'])
+    translated_text = translator.TranslateText(text_from_image).text
+    sound_file = soundconverter.ConvertToSound(translated_text)
+    return sound_file
+
+def save_sound_file():
+    timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
+    try:
+        sound_file.save('./media/' + timestamp + '.mp3')
+    except:
+        print('ignore this error')
+
+    return fs.url(timestamp + '.mp3')
+        
