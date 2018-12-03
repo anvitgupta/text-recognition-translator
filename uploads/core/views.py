@@ -27,8 +27,8 @@ def simple_upload(request):
         try:
             sound_file.save('./media/' + timestamp + '.mp3')
         except:
-            print "Error occured with save"
-                
+            print('ignore this error')
+
         sound_file_url = fs.url(timestamp + '.mp3')
         
         # sound_file_name = str(time.strftime("%Y%m%d-%H%M%S")) + '.mp3'
