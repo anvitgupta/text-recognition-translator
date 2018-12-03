@@ -42,7 +42,7 @@ def process_text(imageprocessor, translator, soundconverter, request, myfile):
     translated_text = translator.TranslateText(text_from_image).text
     return translated_text
 
-def save_sound_file():
+def save_sound_file(translated_text):
     sound_file = soundconverter.ConvertToSound(translated_text)
     timestamp = str(time.strftime("%Y%m%d-%H%M%S"))
     try:
