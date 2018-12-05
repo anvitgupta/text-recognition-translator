@@ -9,11 +9,14 @@
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        <label for="myfile">Select image:</label>
-        <input type="file" class="form-control-file col-sm-4" name="myfile">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="myfile" id="validatedCustomFile" required>
+          <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+          <div class="invalid-feedback">Please select a JPEG file</div>
+        </div>
         <p></p>
         <label for="language">Select language:</label>
-        <select class="form-control col-sm-4" name="language" id="language" onfocus="highlightInput(this.id)" onblur="unhighlightInput(this.id)">
+        <select class="form-control-sm col-sm-4" name="language" id="language" onfocus="highlightInput(this.id)" onblur="unhighlightInput(this.id)">
           <option value="eng">English</option>
           <option value="hin">Hindi</option>
           <option value="spa">Spanish</option>
