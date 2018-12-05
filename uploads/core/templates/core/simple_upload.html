@@ -10,12 +10,14 @@
         {% csrf_token %}
         {{ form|crispy }}
         <div class="custom-file">
-          <input type="file" class="custom-file-input" name="myfile" id="validatedCustomFile" accept="image/jpeg" required>
+          <input type="file" class="custom-file-input" name="myfile" id="validatedCustomFile" required>
           <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
           <div class="invalid-feedback">Please select a JPEG file</div>
         </div>
         <p></p>
-        <input type="file" id="input-file-now-custom-1" class="file-upload" data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg" />
+        <div class="file-upload-wrapper">
+          <input type="file" id="input-file-now-custom-1" class="file-upload" data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg" />
+        </div>
         <p></p>
         <div>
           <select class="custom-select" name="language" required>
