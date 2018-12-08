@@ -14,8 +14,21 @@ Text-Recognition uses a number of technologies and libraries:
 
 ### Installation
 
-Text-Recognition requies [python 2.7](https://www.python.org/download/releases/2.7/) to run.
+Text-Recognition requies:
+Python 2.7
+Django 2.1.4
+Tesseract-ocr
+gTTs
+Ubuntu environment
+
+### Running the project
+
+1) git clone https://github.com/maxengel99/Text-Recognition-Translator.git 
+2) cd into the repo
+3) type out the following command: python3 manage.py runserver 0:8000
+4) Navigate to port 8000 of your localhost
+5) Upload a image file containing words
 
 ### Notes
 
-Email anvit.gupta@vanderbilt.edu so he can run the AWS instance if you need to test it. The application can be accessed at http://ec2-52-87-157-92.compute-1.amazonaws.com:8000/uploads/simple/.
+We've currently turned off our AWS instance as we have a limited amount of credit. Please email anvit.gupta@vanderbilt.edu if you'd like to test it live.
