@@ -1,5 +1,6 @@
 import unittest
 from translatehandler import TranslationHandler
+from imageprocessinghandler import ImageProcessingHandler
 
 class TranslationTests(unittest.TestCase):
 
