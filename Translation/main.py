@@ -7,5 +7,6 @@ converter = ConversionHandler()
 while True:
     com = input("translate this: ")
     translation = translator.TranslateText(com)
-    print(translation.text)
+    print(translator.DetectLanguage("test").lang)
+    print(translator.TranslateText('esto es espanol'))
     converter.ConvertToSound(translation.text)
