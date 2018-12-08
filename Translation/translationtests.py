@@ -21,7 +21,7 @@ class TranslationTests(unittest.TestCase):
 
     def testtranslatetext(self):
         translator = TranslationHandler()
-        text = translator.TranslateText('esto es espanol').text
+        text = translator.TranslateText('esto es espanol').text 
         self.assertEqual(text, 'this is Spanish')
 
 if __name__=='__main__':
