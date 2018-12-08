@@ -13,9 +13,12 @@ class SimpleTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
     
     def test_simpleupload(self):
-        response = self.factory.post('/simple_upload', 'uploads\Images\spanish.png')
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(resp['Location'], 'http://testserver/polls/1/results/')
-        
+        response = self.factory.post('/uploads/simple', 'uploads\Images\spanish.png')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content_type('text/html'))
+
+    def test_getfile(self):
+        request = 
+
 
 

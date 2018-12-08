@@ -32,7 +32,7 @@ def simple_upload(request):
 
     return render(request, 'core/simple_upload.html')
 
-def get_file(request, myfile):
+def get_file(myfile):
     fs = FileSystemStorage()
     filename = fs.save(myfile.name, myfile)
     return filename
