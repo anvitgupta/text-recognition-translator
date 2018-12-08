@@ -6,7 +6,7 @@ SECRET_KEY = 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-52-87-157-92.compute-1.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-34-205-71-6.compute-1.amazonaws.com']
 
 
 # Application definition
