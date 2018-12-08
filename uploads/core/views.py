@@ -20,7 +20,7 @@ def simple_upload(request):
 
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
-        filename = get_file(request, myfile)
+        filename = get_file(myfile)
         translated_text = process_text(imageprocessor, translator, soundconverter, request, myfile) 
 
         sound_file_url = save_sound_file(soundconverter, translated_text)
