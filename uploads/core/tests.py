@@ -61,5 +61,6 @@ class SimpleTest(unittest.TestCase):
         self.assertEqual(process_text((imageprocessor, translator, soundconverter, request_japanese, '\uploads\Images\Japanese.png')), 'Hello, my name is It is Jon.')
 
 
-
+if __name__=='__main__':
+    unittest.main()
 
