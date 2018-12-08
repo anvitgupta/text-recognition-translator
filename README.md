@@ -23,9 +23,9 @@ Ubuntu environment
 
 ### Running the project
 
-1) git clone https://github.com/maxengel99/Text-Recognition-Translator.git 
-2) cd into the repo
-3) type out the following command: python3 manage.py runserver 0:8000
+1) Git clone https://github.com/maxengel99/Text-Recognition-Translator.git 
+2) Cd into the repo
+3) Type out the following command: python3 manage.py runserver 0:8000
 4) Navigate to port 8000 of your localhost
 5) Upload a image file containing words
 
