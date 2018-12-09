@@ -15,11 +15,11 @@ Text-Recognition uses a number of technologies and libraries:
 ### Installation
 
 Text-Recognition requies the following libraries to run locally:
-Python 2.7
-Django 2.1.4
-Tesseract-ocr
-gTTs
-Ubuntu environment
+* Python 2.7
+* Django 2.1.4
+* Tesseract-ocr
+* gTTs
+* Ubuntu environment
 
 ### Running the project
 
